@@ -12,10 +12,11 @@ $(document).ready(function(){
     			appid: 'f0d6e0583c32177ac960f8b743c14ae0',
     			lat: position.coords.latitude,
     			lon: position.coords.longitude,
-    			callback: 'weatherData',
+    			callback: data,
+    			
     		},
-    		function(weatherData) {
-    		$("#city").html(weatherData[0].sys.name);
+    		success: function(data) {
+    		$("#city").text(data.sys.name);
     	}
     	
     	});
