@@ -15,11 +15,13 @@ $(document).ready(function(){
     			callback: data,
     			
     		},
-    		success: function(data) {
-    		$("#city").text(data.sys.name);
-    	}
+    		success: wData 
     	
     	});
+    	function wData(data){
+    		$("#city").text(data.sys.name);
+
+    	};
    
     	
     	/* dummy output to test, puts the co-ords onto the page 
