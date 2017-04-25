@@ -1,5 +1,7 @@
 /* Open Weather Map api */
 /* f0d6e0583c32177ac960f8b743c14ae0 */
+/* TODO: C/F button, weather icons, get local files for bootstrap
+and jquery*/
 
 $(document).ready(function(){
 
@@ -7,23 +9,21 @@ $(document).ready(function(){
 	if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
     	$.ajax({
-    		url:'http://api.openweathermap.org/data/2.5/weather?',
+    		url:'http://api.openweathermap.org/data/2.5/weather?units=metric',
     		data:{
     			appid: 'f0d6e0583c32177ac960f8b743c14ae0',
     			lat: position.coords.latitude,
     			lon: position.coords.longitude,
     			
-    			
+    				
     		},
     		success: function(response){
-    			$("#city").html(response.name);
+    			$("#city").html("<h1>" + response.name + "</h1>");
+    			$("#temp").html("<h2>" + response.main.temp.toFixed() + "&deg;C</h2>");
+    			$("#details").html("<h2>" + response.weather[0].description + "</h2>");
     		}
     	
     	})
-    	/*function wData(data){
-    		console.log(JSON.sys.name); 
-
-    	}; */
    
     	
     	/* dummy output to test, puts the co-ords onto the page 
