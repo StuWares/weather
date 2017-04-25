@@ -12,22 +12,26 @@ $(document).ready(function(){
     			appid: 'f0d6e0583c32177ac960f8b743c14ae0',
     			lat: position.coords.latitude,
     			lon: position.coords.longitude,
-    			callback: data,
+    			
     			
     		},
-    		success: wData 
+    		success: function(response){
+    			$("#city").html(response.name);
+    		}
     	
-    	});
-    	function wData(data){
-    		$("#city").text(data.sys.name);
+    	})
+    	/*function wData(data){
+    		console.log(JSON.sys.name); 
 
-    	};
+    	}; */
    
     	
     	/* dummy output to test, puts the co-ords onto the page 
       $("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " 
       	+ position.coords.longitude); */
     });
+  } else {
+  	$("#city").html("For local weather, please allow location access");
   };
 
 });
