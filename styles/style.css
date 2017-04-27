@@ -4,18 +4,29 @@ body {
 
 #footer {
 	display: inline-block;
+	border-left: auto;
+	border-right: auto;
 }
 
 #contact {
 	display: inline-block;
 }
 
+#but-box {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
 
+#deg-f {
+	font-weight: bold;
+}
 
 /* slider toggle switch */
 .switch {
 	position: relative;
 	display: inline-block;
+	right: auto;
 	width: 60px;
 	height: 34px;
 }

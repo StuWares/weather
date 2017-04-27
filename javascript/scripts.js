@@ -26,12 +26,19 @@ $(document).ready(function(){
     			$("#temp").html("<h2>" + response.main.temp.toFixed() + "&deg;C</h2>");
     			$("#details").html("<h2>" + response.weather[0].description + "</h2>");
 
+    			$("#but-box").on("click", function() {
+    			var degF = response.main.temp * 9/5 + 32;
+    			$("#temp").html("<h2>" + degF.toFixed() + "&deg;F</h2>");
+    			});
+
     		},
     		error: function(){
     			$("#city").html("<h2>Unable to contact api</h2>");
     		}
     	
     	})
+
+
    
     	
     	/* dummy output to test, puts the co-ords onto the page 
