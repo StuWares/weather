@@ -1,5 +1,7 @@
 /* Open Weather Map api */
 /* f0d6e0583c32177ac960f8b743c14ae0 */
+/* using cors-anywhere.herokuapp.com as a proxy due to weather api not
+supporting https*/
 /* TODO: C/F button, weather icons, get local files for bootstrap
 and jquery*/
 
@@ -18,10 +20,12 @@ $(document).ready(function(){
     			
     				
     		},
+    		/* render json data*/
     		success: function(response){
     			$("#city").html("<h1>" + response.name + "</h1>");
     			$("#temp").html("<h2>" + response.main.temp.toFixed() + "&deg;C</h2>");
     			$("#details").html("<h2>" + response.weather[0].description + "</h2>");
+
     		},
     		error: function(){
     			$("#city").html("<h2>Unable to contact api</h2>");
