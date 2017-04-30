@@ -2,7 +2,7 @@
 /* f0d6e0583c32177ac960f8b743c14ae0 */
 /* using cors-anywhere.herokuapp.com as a proxy due to weather api not
 supporting https*/
-/* TODO: C/F button, weather icons, get local files for bootstrap
+/* TODO: weather icons, get local files for bootstrap
 and jquery*/
 
 $(document).ready(function(){
@@ -24,10 +24,12 @@ $(document).ready(function(){
     		success: function(response){
     			var units = "metric";
     			var degF = response.main.temp * 9/5 + 32;
+    			
 
     			$("#city").html("<h1>" + response.name + "</h1>");
     			$("#temp").html("<h2>" + response.main.temp.toFixed() + "&deg;C</h2>");
     			$("#details").html("<h2>" + response.weather[0].description + "</h2>");
+    			$("#symbol").html('<img src="https://openweathermap.org/img/w/' + response.weather[0].icon + '.png">');
 
     			$("#temp").on("click", function() {
     					
